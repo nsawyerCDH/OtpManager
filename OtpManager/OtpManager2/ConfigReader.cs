@@ -1,16 +1,21 @@
-﻿using OtpManager.Models;
+﻿using OtpManager2.Models;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
+using System.Windows.Forms;
 
-namespace OtpManager
+namespace OtpManager2
 {
     public static class ConfigReader
     {
-        public static string defaultConfigDir => Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
-        public static string defaultConfigName => "config.json";
+        public static string defaultConfigDir => Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+        public static string defaultConfigName => $"{Application.ProductName}_config.json";
+        public static string defaultConfigPath => Path.Combine(defaultConfigDir, defaultConfigName);
 
-        public static string configPath = Path.Combine(defaultConfigDir, defaultConfigName);
+        public static string configPath = defaultConfigPath;
+
+        public static bool isDefaultPath => configPath == defaultConfigPath;
 
         public static ConfigHead Read(string configPath, bool createIfNotExists = true)
         {
@@ -34,15 +39,20 @@ namespace OtpManager
             string name = System.Reflection.Assembly.GetExecutingAssembly().GetName().Name;
 
             //Create a new ConfigHead object with the current version and a single example item
-            ConfigHead configHead = new ConfigHead
+            ConfigHead configHead = new ConfigHead()
             {
                 Name = name,
                 Version = version,
+                TypeBeforeDelayMs = 300,
+                TypeCharDelayMs = 30,
                 Items = new List<ConfigItem>()
                 {
                     new ConfigItem()
                     {
-                        argId = "1",
+                        id = 1,
+                        name = "Example",
+                        modifier = (int)KeyModifiers.Control,
+                        key = (int)Keys.D1,
                         value = "Hello, World!",
                         isOTP = false
                     }

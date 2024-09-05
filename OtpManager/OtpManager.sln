@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.35013.160
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OtpManager", "OtpManager\OtpManager.csproj", "{17937EC4-3E98-4948-9FB0-8A5BBB320E91}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OtpManager2", "OtpManager2\OtpManager2.csproj", "{84667A94-43AA-4766-9830-022229872258}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Installer", "Installer\Installer.vdproj", "{0A0131B7-1689-42FD-87F8-7D221A62971B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +13,12 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{17937EC4-3E98-4948-9FB0-8A5BBB320E91}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{17937EC4-3E98-4948-9FB0-8A5BBB320E91}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{17937EC4-3E98-4948-9FB0-8A5BBB320E91}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{17937EC4-3E98-4948-9FB0-8A5BBB320E91}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84667A94-43AA-4766-9830-022229872258}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84667A94-43AA-4766-9830-022229872258}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84667A94-43AA-4766-9830-022229872258}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84667A94-43AA-4766-9830-022229872258}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A0131B7-1689-42FD-87F8-7D221A62971B}.Debug|Any CPU.ActiveCfg = Debug
+		{0A0131B7-1689-42FD-87F8-7D221A62971B}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
