@@ -41,8 +41,20 @@ namespace OtpManager2.Models
         }
 
         /// <summary>
-        /// Flag to determine if the configuration item is an OTP (One-Time Password) or a regular string
+        /// The type of the value (plainText, password, or otp)
         /// </summary>
-        public bool isOTP { get; set; }
+        public ValueTypes valueType { get; set; }
+
+        public bool isOTP => valueType == ValueTypes.otp;
+
+        /// <summary>
+        /// Enum of the available value types
+        /// </summary>
+        public enum ValueTypes
+        {
+            plainText = 0,
+            password = 1,
+            otp = 2
+        }
     }
 }

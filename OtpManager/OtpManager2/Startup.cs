@@ -157,7 +157,7 @@ namespace OtpManager2
                         System.Threading.Thread.Sleep(Startup.config.TypeBeforeDelayMs);
 
                         //Hotkey was found, type the value
-                        if (configItem.isOTP)
+                        if (configItem.valueType == ConfigItem.ValueTypes.otp)
                             TypeStr(GetOtp(configItem.value));
 
                         else
@@ -243,8 +243,16 @@ namespace OtpManager2
         /// <param name="e"></param>
         private void Startup_FormClosing(object sender, FormClosingEventArgs e)
         {
-            e.Cancel = true;
-            this.Hide();
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
+                //If it's the user pressing the red 'X' on the window, minimize to the system tray and do not exit app
+                e.Cancel = true;
+                this.Hide();
+                return;
+            }
+
+            //If it's any other reason for closing the form, then exit the application (ex. windows shut down or task manager)
+            Application.Exit();
         }
 
         /// <summary>
@@ -256,6 +264,9 @@ namespace OtpManager2
         {
             //remove the event handler for form closing
             this.FormClosing -= Startup_FormClosing;
+
+            //Release the mutex
+            Program.mutex.ReleaseMutex();
 
             // Exit the application.
             Application.Exit();
@@ -364,11 +375,11 @@ namespace OtpManager2
                 }
                 hotKeyCombo += ((Keys)configItem.key).ToString();
 
-                //Build the safe value, as we don't want to openly display sensitive OTP secrets
-                string safeValue = !configItem.isOTP ? configItem.value : "********************";
+                //Build the safe value, as we don't want to openly display sensitive OTP secrets or passwords
+                string safeValue = configItem.valueType == ConfigItem.ValueTypes.plainText ? configItem.value : "********************";
 
                 //Add the row to the GridView
-                configViewerGridView.Rows.Add(configItem.id, configItem.name, hotKeyCombo, safeValue, configItem.isOTP);
+                configViewerGridView.Rows.Add(configItem.id, configItem.name, hotKeyCombo, safeValue, configItem.valueType == ConfigItem.ValueTypes.otp);
             }
         }
         #endregion

@@ -37,13 +37,6 @@
         private void InitializeComponent()
         {
             this.configViewerGridView = new System.Windows.Forms.DataGridView();
-            this.idColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.hotKeyColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.valueColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.isOTPColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.editColumn = new System.Windows.Forms.DataGridViewImageColumn();
-            this.deleteColumn = new System.Windows.Forms.DataGridViewImageColumn();
             this.addNewItemButton = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -57,6 +50,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.fileVersionTextBox = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.idColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.hotKeyColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.valueColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.isOTPColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.editColumn = new System.Windows.Forms.DataGridViewImageColumn();
+            this.deleteColumn = new System.Windows.Forms.DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)(this.configViewerGridView)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -67,7 +67,7 @@
             this.configViewerGridView.AllowUserToDeleteRows = false;
             this.configViewerGridView.AllowUserToResizeColumns = false;
             this.configViewerGridView.AllowUserToResizeRows = false;
-            this.configViewerGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.configViewerGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.configViewerGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idColumn,
             this.nameColumn,
@@ -82,70 +82,6 @@
             this.configViewerGridView.Size = new System.Drawing.Size(560, 291);
             this.configViewerGridView.TabIndex = 0;
             this.configViewerGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.configViewerGridView_CellClick);
-            // 
-            // idColumn
-            // 
-            this.idColumn.Frozen = true;
-            this.idColumn.HeaderText = "idColumn";
-            this.idColumn.Name = "idColumn";
-            this.idColumn.ReadOnly = true;
-            this.idColumn.Visible = false;
-            // 
-            // nameColumn
-            // 
-            this.nameColumn.Frozen = true;
-            this.nameColumn.HeaderText = "Name";
-            this.nameColumn.Name = "nameColumn";
-            this.nameColumn.ReadOnly = true;
-            this.nameColumn.Width = 125;
-            // 
-            // hotKeyColumn
-            // 
-            this.hotKeyColumn.Frozen = true;
-            this.hotKeyColumn.HeaderText = "Hot Key";
-            this.hotKeyColumn.Name = "hotKeyColumn";
-            this.hotKeyColumn.ReadOnly = true;
-            this.hotKeyColumn.Width = 110;
-            // 
-            // valueColumn
-            // 
-            this.valueColumn.Frozen = true;
-            this.valueColumn.HeaderText = "Value";
-            this.valueColumn.Name = "valueColumn";
-            this.valueColumn.ReadOnly = true;
-            this.valueColumn.Width = 185;
-            // 
-            // isOTPColumn
-            // 
-            this.isOTPColumn.Frozen = true;
-            this.isOTPColumn.HeaderText = "IsOTP";
-            this.isOTPColumn.Name = "isOTPColumn";
-            this.isOTPColumn.ReadOnly = true;
-            this.isOTPColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.isOTPColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.isOTPColumn.Width = 50;
-            // 
-            // editColumn
-            // 
-            this.editColumn.Frozen = true;
-            this.editColumn.HeaderText = "";
-            this.editColumn.Image = global::OtpManager2.Properties.Resources.edit;
-            this.editColumn.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.editColumn.Name = "editColumn";
-            this.editColumn.ReadOnly = true;
-            this.editColumn.Width = 30;
-            // 
-            // deleteColumn
-            // 
-            this.deleteColumn.Frozen = true;
-            this.deleteColumn.HeaderText = "";
-            this.deleteColumn.Image = global::OtpManager2.Properties.Resources.delete;
-            this.deleteColumn.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.deleteColumn.Name = "deleteColumn";
-            this.deleteColumn.ReadOnly = true;
-            this.deleteColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.deleteColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.deleteColumn.Width = 30;
             // 
             // addNewItemButton
             // 
@@ -270,6 +206,70 @@
             this.label6.Size = new System.Drawing.Size(100, 13);
             this.label6.TabIndex = 10;
             this.label6.Text = "Configuration Items:";
+            // 
+            // idColumn
+            // 
+            this.idColumn.Frozen = true;
+            this.idColumn.HeaderText = "idColumn";
+            this.idColumn.Name = "idColumn";
+            this.idColumn.ReadOnly = true;
+            this.idColumn.Visible = false;
+            // 
+            // nameColumn
+            // 
+            this.nameColumn.Frozen = true;
+            this.nameColumn.HeaderText = "Name";
+            this.nameColumn.Name = "nameColumn";
+            this.nameColumn.ReadOnly = true;
+            this.nameColumn.Width = 125;
+            // 
+            // hotKeyColumn
+            // 
+            this.hotKeyColumn.Frozen = true;
+            this.hotKeyColumn.HeaderText = "Hot Key";
+            this.hotKeyColumn.Name = "hotKeyColumn";
+            this.hotKeyColumn.ReadOnly = true;
+            this.hotKeyColumn.Width = 110;
+            // 
+            // valueColumn
+            // 
+            this.valueColumn.Frozen = true;
+            this.valueColumn.HeaderText = "Value";
+            this.valueColumn.Name = "valueColumn";
+            this.valueColumn.ReadOnly = true;
+            this.valueColumn.Width = 185;
+            // 
+            // isOTPColumn
+            // 
+            this.isOTPColumn.Frozen = true;
+            this.isOTPColumn.HeaderText = "Is OTP";
+            this.isOTPColumn.Name = "isOTPColumn";
+            this.isOTPColumn.ReadOnly = true;
+            this.isOTPColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.isOTPColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.isOTPColumn.Width = 50;
+            // 
+            // editColumn
+            // 
+            this.editColumn.Frozen = true;
+            this.editColumn.HeaderText = "";
+            this.editColumn.Image = global::OtpManager2.Properties.Resources.edit;
+            this.editColumn.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.editColumn.Name = "editColumn";
+            this.editColumn.ReadOnly = true;
+            this.editColumn.Width = 30;
+            // 
+            // deleteColumn
+            // 
+            this.deleteColumn.Frozen = true;
+            this.deleteColumn.HeaderText = "";
+            this.deleteColumn.Image = global::OtpManager2.Properties.Resources.delete;
+            this.deleteColumn.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.deleteColumn.Name = "deleteColumn";
+            this.deleteColumn.ReadOnly = true;
+            this.deleteColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.deleteColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.deleteColumn.Width = 30;
             // 
             // Startup
             // 

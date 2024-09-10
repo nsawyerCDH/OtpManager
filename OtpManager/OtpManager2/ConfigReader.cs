@@ -54,7 +54,7 @@ namespace OtpManager2
                         modifier = (int)KeyModifiers.Control,
                         key = (int)Keys.D1,
                         value = "Hello, World!",
-                        isOTP = false
+                        valueType = ConfigItem.ValueTypes.plainText
                     }
                 }
             };
@@ -64,6 +64,10 @@ namespace OtpManager2
 
         public static bool Write(string configPath, ConfigHead configHead)
         {
+            //Update the version number in the ConfigHead object
+            string version = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
+            configHead.Version = version;
+
             //Serialize the object to JSON, including formatting
             string json = JsonSerializer.Serialize(configHead, new JsonSerializerOptions() { WriteIndented = true });
 

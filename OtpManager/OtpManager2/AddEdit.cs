@@ -59,8 +59,19 @@ namespace OtpManager2
             hotKeyModifierComboBox.SelectedItem = (KeyModifiers)configItem.modifier;
             hotKeyKeyTextBox.Text = ((Keys)configItem.key).ToString();
             valueTextBox.Text = configItem.value;
-            valueTypeOTPRadioButton.Checked = configItem.isOTP;
-            valueTypeStringRadioButton.Checked = !configItem.isOTP;
+
+            switch (configItem.valueType)
+            {
+                case ConfigItem.ValueTypes.plainText:
+                    valueTypePlainTextRadioButton.Checked = true;
+                    break;
+                case ConfigItem.ValueTypes.password:
+                    valueTypePasswordRadioButton.Checked = true;
+                    break;
+                case ConfigItem.ValueTypes.otp:
+                    valueTypeOtpRadioButton.Checked = true;
+                    break;
+            }
         }
 
         private void saveChangesButton_Click(object sender, EventArgs e)
@@ -70,9 +81,9 @@ namespace OtpManager2
             this.configItem.modifier = (int)Enum.Parse(typeof(KeyModifiers), hotKeyModifierComboBox.SelectedItem.ToString());
             this.configItem.key = (int)Enum.Parse(typeof(Keys), hotKeyKeyTextBox.Text);
             this.configItem.value = valueTextBox.Text;
-            this.configItem.isOTP = valueTypeOTPRadioButton.Checked;
-            //HotKey
+            this.configItem.valueType = valueTypePlainTextRadioButton.Checked ? ConfigItem.ValueTypes.plainText : valueTypePasswordRadioButton.Checked ? ConfigItem.ValueTypes.password : ConfigItem.ValueTypes.otp;
 
+            //HotKey
             if (IsAdd)
             {
                 //Add
