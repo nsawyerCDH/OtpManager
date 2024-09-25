@@ -40,6 +40,7 @@
             this.saveChangesButton = new System.Windows.Forms.Button();
             this.hotKeyModifierComboBox = new System.Windows.Forms.ComboBox();
             this.valueTypePasswordRadioButton = new System.Windows.Forms.RadioButton();
+            this.valueTypeSpecialRadioButton = new System.Windows.Forms.RadioButton();
             this.SuspendLayout();
             // 
             // label1
@@ -93,7 +94,7 @@
             // valueTypeOtpRadioButton
             // 
             this.valueTypeOtpRadioButton.AutoSize = true;
-            this.valueTypeOtpRadioButton.Location = new System.Drawing.Point(238, 182);
+            this.valueTypeOtpRadioButton.Location = new System.Drawing.Point(187, 182);
             this.valueTypeOtpRadioButton.Name = "valueTypeOtpRadioButton";
             this.valueTypeOtpRadioButton.Size = new System.Drawing.Size(47, 17);
             this.valueTypeOtpRadioButton.TabIndex = 6;
@@ -144,7 +145,7 @@
             // valueTypePasswordRadioButton
             // 
             this.valueTypePasswordRadioButton.AutoSize = true;
-            this.valueTypePasswordRadioButton.Location = new System.Drawing.Point(126, 182);
+            this.valueTypePasswordRadioButton.Location = new System.Drawing.Point(106, 182);
             this.valueTypePasswordRadioButton.Name = "valueTypePasswordRadioButton";
             this.valueTypePasswordRadioButton.Size = new System.Drawing.Size(71, 17);
             this.valueTypePasswordRadioButton.TabIndex = 11;
@@ -152,11 +153,23 @@
             this.valueTypePasswordRadioButton.Text = "Password";
             this.valueTypePasswordRadioButton.UseVisualStyleBackColor = true;
             // 
+            // valueTypeSpecialRadioButton
+            // 
+            this.valueTypeSpecialRadioButton.AutoSize = true;
+            this.valueTypeSpecialRadioButton.Location = new System.Drawing.Point(245, 182);
+            this.valueTypeSpecialRadioButton.Name = "valueTypeSpecialRadioButton";
+            this.valueTypeSpecialRadioButton.Size = new System.Drawing.Size(60, 17);
+            this.valueTypeSpecialRadioButton.TabIndex = 12;
+            this.valueTypeSpecialRadioButton.TabStop = true;
+            this.valueTypeSpecialRadioButton.Text = "Special";
+            this.valueTypeSpecialRadioButton.UseVisualStyleBackColor = true;
+            // 
             // AddEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(330, 256);
+            this.Controls.Add(this.valueTypeSpecialRadioButton);
             this.Controls.Add(this.valueTypePasswordRadioButton);
             this.Controls.Add(this.hotKeyModifierComboBox);
             this.Controls.Add(this.saveChangesButton);
@@ -191,5 +204,6 @@
         private System.Windows.Forms.Button saveChangesButton;
         private System.Windows.Forms.ComboBox hotKeyModifierComboBox;
         private System.Windows.Forms.RadioButton valueTypePasswordRadioButton;
+        private System.Windows.Forms.RadioButton valueTypeSpecialRadioButton;
     }
 }

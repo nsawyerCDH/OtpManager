@@ -1,12 +1,6 @@
 ﻿using OtpManager2.Models;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace OtpManager2
@@ -71,6 +65,9 @@ namespace OtpManager2
                 case ConfigItem.ValueTypes.otp:
                     valueTypeOtpRadioButton.Checked = true;
                     break;
+                case ConfigItem.ValueTypes.special:
+                    valueTypeSpecialRadioButton.Checked = true;
+                    break;
             }
         }
 
@@ -81,7 +78,7 @@ namespace OtpManager2
             this.configItem.modifier = (int)Enum.Parse(typeof(KeyModifiers), hotKeyModifierComboBox.SelectedItem.ToString());
             this.configItem.key = (int)Enum.Parse(typeof(Keys), hotKeyKeyTextBox.Text);
             this.configItem.value = valueTextBox.Text;
-            this.configItem.valueType = valueTypePlainTextRadioButton.Checked ? ConfigItem.ValueTypes.plainText : valueTypePasswordRadioButton.Checked ? ConfigItem.ValueTypes.password : ConfigItem.ValueTypes.otp;
+            this.configItem.valueType = (valueTypePlainTextRadioButton.Checked ? ConfigItem.ValueTypes.plainText : (valueTypePasswordRadioButton.Checked ? ConfigItem.ValueTypes.password : (valueTypeOtpRadioButton.Checked ? ConfigItem.ValueTypes.otp : (ConfigItem.ValueTypes.special))));
 
             //HotKey
             if (IsAdd)

@@ -54,7 +54,8 @@ namespace OtpManager2.Models
         {
             plainText = 0,
             password = 1,
-            otp = 2
+            otp = 2,
+            special = 3
         }
     }
 }

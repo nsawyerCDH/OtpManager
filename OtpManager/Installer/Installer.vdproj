@@ -302,6 +302,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                }
             }
         }
         "Release"
@@ -326,6 +334,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                }
             }
         }
     }
@@ -804,15 +820,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:OtpManager2"
-        "ProductCode" = "8:{EFC0FD64-4EF3-4919-8252-FEFAC828EC95}"
-        "PackageCode" = "8:{9786B97F-A1BA-4D91-86B0-4C82FAAFBBAF}"
+        "ProductCode" = "8:{3C0DF7B2-EEF3-444D-A0CE-49261C3E400C}"
+        "PackageCode" = "8:{00B24375-BC30-41DF-B019-E8560C16A671}"
         "UpgradeCode" = "8:{84BB74DD-0717-4C18-9BBE-A384E9AE1BA3}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:1.1.0"
+        "ProductVersion" = "8:1.2.0"
         "Manufacturer" = "8:Nathan Sawyer"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"

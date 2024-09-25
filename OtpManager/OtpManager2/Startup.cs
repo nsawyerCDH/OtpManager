@@ -2,7 +2,6 @@
 using OtpManager2.Models;
 using OtpSharp;
 using System;
-using System.Linq;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
@@ -83,7 +82,7 @@ namespace OtpManager2
             return totp.ComputeTotp();
         }
 
-        static void TypeStr(string value)
+        public static void TypeStr(string value)
         {
             foreach (char c in value)
             {
@@ -92,6 +91,22 @@ namespace OtpManager2
 
                 //sleep for the config duration
                 System.Threading.Thread.Sleep(Startup.config.TypeCharDelayMs);
+            }
+        }
+
+        static void SpecialAction(string value)
+        {
+            if (value == nameof(WinStop))
+            {
+                var winStop = new WinStop();
+                winStop.StartPosition = FormStartPosition.CenterScreen;
+                winStop.TopMost = true;
+                winStop.Show();
+            }
+            else
+            {
+                //Show Message the value is invalid
+                MessageBox.Show("The Special value is invalid!");
             }
         }
         #endregion
@@ -159,6 +174,9 @@ namespace OtpManager2
                         //Hotkey was found, type the value
                         if (configItem.valueType == ConfigItem.ValueTypes.otp)
                             TypeStr(GetOtp(configItem.value));
+
+                        else if (configItem.valueType == ConfigItem.ValueTypes.special)
+                            SpecialAction(configItem.value);
 
                         else
                             TypeStr(configItem.value);
