@@ -295,7 +295,6 @@
             this.Controls.Add(this.configViewerGridView);
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(639, 566);
-            this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(639, 566);
             this.Name = "Startup";
             this.Text = "Startup";

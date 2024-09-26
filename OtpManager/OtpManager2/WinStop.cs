@@ -21,18 +21,18 @@ namespace OtpManager2
             string timeInput = winStopMaskedTextbox.Text;
             DateTime parsedDateTime;
 
-            //Try Parse the hours
+            //Parse the last 2 characters as AM/PM
+            string amPm = timeInput.Substring(6, 2).ToUpper();
+
+            if (amPm != "AM" && amPm != "PM")
+            {
+                MessageBox.Show("Invalid time format. Please use hh:mm AM/PM.");
+                return;
+            }
+
+            //Try Parse the hours and minutes
             if (int.TryParse(timeInput.Substring(0, 2), out int hours) && int.TryParse(timeInput.Substring(3, 2), out int minutes))
             {
-                //Parse the last 2 characters as AM/PM
-                string amPm = timeInput.Substring(6, 2).ToUpper();
-
-                if (amPm != "AM" && amPm != "PM")
-                {
-                    MessageBox.Show("Invalid time format. Please use hh:mm AM/PM.");
-                    return;
-                }
-
                 //If PM, add 12 hours to the hours
                 if (amPm == "PM")
                 {
@@ -66,15 +66,19 @@ namespace OtpManager2
             cmdProcess.Start();
 
             System.Threading.Thread.Sleep(1000);
+            Application.DoEvents();
+            System.Threading.Thread.Sleep(1000);
 
             //Send cmd to cancel any previously scheduled shutdowns
             Startup.TypeStr("shutdown -a");
+            System.Threading.Thread.Sleep(100);
             SendKeys.SendWait("{ENTER}");
 
             System.Threading.Thread.Sleep(1000);
 
             //Send cmd to shutdown at the specified time
             Startup.TypeStr($"shutdown -s -t {Math.Round(timeUntilShutdown.TotalSeconds, 0)}");
+            System.Threading.Thread.Sleep(100);
             SendKeys.SendWait("{ENTER}");
             System.Threading.Thread.Sleep(1000);
 
@@ -82,8 +86,7 @@ namespace OtpManager2
             cmdProcess.Kill();
             cmdProcess.Dispose();
 
-            //Sleep for 1 second then close the form
-            System.Threading.Thread.Sleep(1000);
+            //Close the WinStop form
             this.Close();
         }
     }
